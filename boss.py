@@ -2,20 +2,18 @@ import pygame.image
 
 
 class Boss:
-    def __init__(self, level, false=None):
-        self.health =level*100
-        self.golda = level
-        self.level = level-1*1.5
+    def __init__(self, level, blok_pos):
+        self.level = level
+        self.hp = level*100
+        self.aurum = level**2
 
-        self.font = pygame.font.SysFont("arial",30)
-        self.block_picture = self.font.render(str(level),false, (0,0,225))
-        self.block.pos=(block_pos + 30, 30)
-        self.picture = pygame.image.load('img//boss.png')
+
+        self.font = pygame.font.SysFont("arial", 30)
+        self.blok_picture = self.font.render(str(level), False, (0,0,255))
+        self.blok_pos = (blok_pos + 30, 30)
+
+        self.picture = pygame.image.load("boss/boss.jfif")
         self.pos = (100,100)
 
-    def draw_block(self,screen):
-        screen.blit(self.block_picture,self.block_pos)
-    def draw_boss(self,screen):
-        screen.blit
-    def is_clicked(self,pos):
-        return False
+    def draw_bloks(self, screen):
+        screen.blit(self.blok_picture,self.blok_pos)

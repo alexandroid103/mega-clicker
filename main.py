@@ -1,42 +1,30 @@
 import pygame
+from boss_menu import Boss_menu
 
 class Main:
+
     def __init__(self):
         pygame.init()
-        self.WINDOW_WIDTH = 680
-        self.WINDOW_HEIGHT = 680
-        self.screen = pygame.display.set_mode((self.WINDOW_WIDTH ,self.WINDOW_HEIGHT))
-        self.boss_menu = BossMenu()
-        self.active_boss_level
+        self.WINDOW_WIDHT = 600
+        self.WINDOW_HEIGHT = 600
+        self.screen = pygame.display.set_mode((self.WINDOW_WIDHT, self.WINDOW_HEIGHT))
+        self.boss_menu = Boss_menu()
+        self.white = [255, 255, 255]
 
-    def start(self):
+
+    def launch(self):
         while True:
             self.draw()
+            self.screen.fill(self.white)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     return 0
-                elif event.type == pygame.MOUSEBOTTONDOWN:
-                    self.try_to_click(event, pos)
 
     def draw(self):
-        self.screen.fill(0,0,0)
-        self.boss_menu.draw_blocks(self.screen)
+        self.boss_menu.draw_bloks(self.screen)
         pygame.display.flip()
 
 
-    def try_to_click(self,pos)
-        for block in self.boss_menu.blocks:
-            if block.is_clicked(pos):
-                if  isinstance(block,LevelChanger)
-                self.boss_menu.change_boss_info()
-
-
-
-
-
-
-
-        main = Main()
-        main.start()
-        pygame.display.flip()
+main = Main()
+main.launch()
